@@ -1,3 +1,14 @@
+#download file
+urlberkas="httpshttps://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
+if (!file.exists("./powercons.zip")){
+       download.file("urlberkas",
+                     "powercons.zip",
+                     "curl")
+}
+#unzip files
+if (!file.exists("./household_power_consumption.txt")){
+       unzip("powercons.zip")
+}
 #Read in the data
 x=read.table("household_power_consumption.txt",header=T,sep=";")
 #subset february 1 and 2
@@ -9,7 +20,7 @@ a=rbind(x1,x2)
 a$Global_active_power=as.numeric(as.character(a$Global_active_power))
 #make png
 png("plot1.png")
-gbr=hist(a$Global_active_power,
+hist(a$Global_active_power,
      main="Global Active Power",
      xlab="Global Active Power (kilowatts)",
      col="red")
