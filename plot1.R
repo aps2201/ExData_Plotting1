@@ -1,5 +1,5 @@
 #download file
-urlberkas="httpshttps://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
+urlberkas="https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
 if (!file.exists("./powercons.zip")){
        download.file("urlberkas",
                      "powercons.zip",
